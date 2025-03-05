@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Operations Table</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            text-align: center;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        div {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Unified Operations</h2>
+    
+    <div>
+        <label for="input1">Input 1</label>
+        <input type="text" id="input1" placeholder="Enter number or string">
+    </div>
+    <div>
+        <label for="input2">Input 2</label>
+        <input type="text" id="input2" placeholder="Enter number or string">
+    </div>
+    <div>
+        <button onclick="processData()">Submit</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr id="tableHeader"></tr>
+        </thead>
+        <tbody id="resultsTable"></tbody>
+    </table>
+
+    <script>
+        function processData() {
+            var val1 = document.getElementById('input1').value.trim();
+            var val2 = document.getElementById('input2').value.trim();
+            var num1 = parseFloat(val1);
+            var num2 = parseFloat(val2);
+            var tableHeader = document.getElementById('tableHeader');
+            var tableBody = document.getElementById('resultsTable');
+            tableBody.innerHTML = ""; 
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                tableHeader.innerHTML = "<th>X</th><th>Y</th><th>OP</th><th>EXP</th><th>Result</th>";
+                var operations = [
+                    { op: '+', exp: ${num1} + ${num2}, result: num1 + num2 },
+                    { op: '-', exp: ${num1} - ${num2}, result: num1 - num2 },
+                    { op: '*', exp: ${num1} * ${num2}, result: num1 * num2 },
+                    { op: '/', exp: ${num1} / ${num2}, result: num2 !== 0 ? (num1 / num2).toFixed(2) : "Cannot divide by zero" },
+                    { op: '', exp: ${num1} ** ${num2}, result: num1 ** num2 },
+                    { op: '%', exp: ${num1} % ${num2}, result: num1 % num2 }
+                ];
+                operations.forEach(op => {
+                    var row = `<tr>
+                        <td>${num1}</td>
+                        <td>${num2}</td>
+                        <td>${op.op}</td>
+                        <td>${op.exp}</td>
+                        <td>${op.result}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            } else if (val1 !== "" && val2 !== "") {
+                tableHeader.innerHTML = "<th>X</th><th>Y</th><th>Concat</th><th>Reverse</th>";
+                var concat = val1 + val2;
+                var reverse = concat.split('').reverse().join('');
+                var row = `<tr>
+                    <td>${val1}</td>
+                    <td>${val2}</td>
+                    <td>${concat}</td>
+                    <td>${reverse}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            } else {
+                alert("Please enter valid inputs.");
+            }
+        }
+    </script>
+</body>
+</html>

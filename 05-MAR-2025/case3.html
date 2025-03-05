@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Identity Verifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            width: 50px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .box {
+            width: 60%;
+            border: 2px solid #333333;
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f8f8;
+            text-align: left;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .box b {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Math Identity Verifier</h2>
+    <label>Value 1: </label>
+    <input type="number" id="value1" value="6">
+    <label>Value 2: </label>
+    <input type="number" id="value2" value="4">
+    <button onclick="verifyIdentities()">Submit</button>
+
+    <div class="container" id="output"></div>
+
+    <script>
+        function verifyIdentities() {
+            let a = parseInt(document.getElementById("value1").value);
+            let b = parseInt(document.getElementById("value2").value);
+            let output = "";
+
+        
+            let lhs = a ** 2 - b ** 2;
+            let rhs = (a - b) * (a + b);
+            output += `<div class="box"><b>1) a² - b² = (a - b)(a + b)</b><br>
+            ${a}² - ${b}² = (${a} - ${b})(${a} + ${b})<br>
+            <b>${lhs} = ${rhs}</b></div>`;
+
+          
+            lhs = (a + b) ** 2;
+            rhs = a ** 2 + 2 * a * b + b ** 2;
+            output += `<div class="box"><b>2) (a + b)² = a² + 2ab + b²</b><br>
+            (${a} + ${b})² = ${a}² + 2(${a})(${b}) + ${b}²<br>
+            <b>${lhs} = ${rhs}</b></div>`;
+
+ 
+            lhs = (a - b) ** 2;
+            rhs = a ** 2 - 2 * a * b + b ** 2;
+            output += `<div class="box"><b>3) (a - b)² = a² - 2ab + b²</b><br>
+            (${a} - ${b})² = ${a}² - 2(${a})(${b}) + ${b}²<br>
+            <b>${lhs} = ${rhs}</b></div>`;
+
+   
+            lhs = a ** 2 + b ** 2;
+            rhs = (a + b) ** 2 - 2 * a * b;
+            output += `<div class="box"><b>4) a² + b² = (a + b)² - 2ab</b><br>
+            ${a}² + ${b}² = (${a} + ${b})² - 2(${a})(${b})<br>
+            <b>${lhs} = ${rhs}</b></div>`;
+
+          
+            lhs = a ** 3 - b ** 3;
+            rhs = (a - b) * (a ** 2 + a * b + b ** 2);
+            output += `<div class="box"><b>5) a³ - b³ = (a - b)(a² + ab + b²)</b><br>
+            ${a}³ - ${b}³ = (${a} - ${b})(${a}² + ${a}(${b}) + ${b}²)<br>
+            <b>${lhs} = ${rhs}</b></div>`;
+
+
+            document.getElementById("output").innerHTML = output;
+        }
+    </script>
+
+</body>
+</html>
