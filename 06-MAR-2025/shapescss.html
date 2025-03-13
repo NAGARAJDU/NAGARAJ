@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .shape {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+        }
+        .circle {
+            height: 50px;
+            width: 50px;
+            background-color: #555;
+            border-radius: 50%;
+        }
+        .square {
+            height: 50px;
+            width: 50px;
+            background-color: #555;
+        }
+        .rectangle {
+            height: 50px;
+            width: 100px;
+            background-color: #555;
+        }
+        .triangle-up {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 50px solid #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter a name to display a shape:</h2>
+    <input type="text" id="nameInput" placeholder="Type a name..." oninput="showShape()">
+    
+    <div id="circle" class="shape circle"></div>
+    <div id="square" class="shape square"></div>
+    <div id="rectangle" class="shape rectangle"></div>
+    <div id="triangle" class="shape triangle-up"></div>
+
+    <script>
+        function showShape() {
+            let name = document.getElementById("nameInput").value.toLowerCase();
+            let circle = document.getElementById("circle");
+            let square = document.getElementById("square");
+            let rectangle = document.getElementById("rectangle");
+            let triangle = document.getElementById("triangle");
+
+            // Hide all shapes initially
+            circle.style.display = "none";
+            square.style.display = "none";
+            rectangle.style.display = "none";
+            triangle.style.display = "none";
+
+            // Show shape based on name
+            if (name === "circle") {
+                circle.style.display = "block";
+            } else if (name === "square") {
+                square.style.display = "block";
+            } else if (name === "rectangle") {
+                rectangle.style.display = "block";
+            } else if (name === "triangle") {
+                triangle.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

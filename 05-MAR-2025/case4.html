@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart Logic</title>
+    <script>
+        function processInput() {
+            let x = document.getElementById("inputX").value;
+            let y = document.getElementById("inputY").value;
+            let resultDiv = document.getElementById("result");
+
+            resultDiv.innerHTML = ""; // Clear previous results
+
+            // Check if values are numbers
+            if (isNaN(x) || isNaN(y)) {
+                let str = x.toString() + y.toString();
+                let reversedStr = str.split("").reverse().join("");
+                let lengthStr = str.length;
+                
+                resultDiv.innerHTML = `<h3>String Operations</h3>
+                    <p>Concatenation: ${str}</p>
+                    <p>Reversed: ${reversedStr}</p>
+                    <p>Length: ${lengthStr}</p>`;
+            } else {
+                x = Number(x);
+                y = Number(y);
+                
+                if (x < 10 && y < 10) {
+                    let sum = x + y;
+                    let product = x * y;
+                    let power = Math.pow(x, y);
+
+                    resultDiv.innerHTML = `<h3>Algebraic Formulas</h3>
+                        <p>Sum: ${sum}</p>
+                        <p>Product: ${product}</p>
+                        <p>Power (x^y): ${power}</p>`;
+                } else {
+                    let sum = x + y;
+                    let difference = x - y;
+                    let product = x * y;
+                    let division = y !== 0 ? (x / y).toFixed(2) : "Undefined (division by zero)";
+
+                    resultDiv.innerHTML = `<h3>Arithmetic Operations</h3>
+                        <p>Sum: ${sum}</p>
+                        <p>Difference: ${difference}</p>
+                        <p>Product: ${product}</p>
+                        <p>Division: ${division}</p>`;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Enter Values</h2>
+    <input type="text" id="inputX" placeholder="Enter X value">
+    <input type="text" id="inputY" placeholder="Enter Y value">
+    <button onclick="processInput()">Process</button>
+
+    <div id="result"></div>
+</body>
+</html>
