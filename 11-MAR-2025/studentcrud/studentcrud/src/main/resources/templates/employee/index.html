@@ -20,6 +20,8 @@
         <th>Name</th>
         <th>Email</th>
         <th>phone</th>
+        <th>Address</th>
+        <th>Gender</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -29,6 +31,8 @@
         <td  th:text="${emp.name}"></td>
         <td  th:text="${emp.email}"></td>
         <td  th:text="${emp.phone}"></td>
+        <td th:text="${emp.Address}"></td>
+        <td th:text="${emp.Gender}"></td>
         <td>
             <a th:href="@{/nagaraj/edit/{id}(id=${emp.id})}" class="btn btn-primary">Edit</a>
             <a th:href="@{/nagaraj/delete/{id}(id=${emp.id})}" class="btn btn-danger">Delete</a>

@@ -1,5 +1,9 @@
 package com.example.studentcrud.model;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 @Entity
@@ -8,11 +12,13 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String name;
     private String email;
     private String phone;
-
+    private String address;
+    private String gender;
+    
     public Long getId() {
         return id;
     }
@@ -43,4 +49,20 @@ public class Employee {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+
 }
