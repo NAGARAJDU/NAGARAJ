@@ -18,6 +18,7 @@ public class Employee {
     private String phone;
     private String address;
     private String gender;
+    private String employeeShift;
     
     public Long getId() {
         return id;
@@ -63,6 +64,14 @@ public class Employee {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public String getEmployeeShift() {
+        return employeeShift;
+    }
+
+    public void setEmployeeShift(String employeeShift) {
+        this.employeeShift = employeeShift;
+}
 
 
 }

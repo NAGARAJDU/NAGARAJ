@@ -12,6 +12,7 @@
 <div class="container mt-3">
     <h2>Employee List</h2>
     <a th:href="@{/nagaraj/create}" class="btn btn-warning m-3">Add employee</a>
+    <a th:href="@{/users/create}" class="btn btn-warning m-3">Add student</a>
     
     <table class="table table-success table-striped">
     <thead class="table-dark">
@@ -22,6 +23,7 @@
         <th>phone</th>
         <th>Address</th>
         <th>Gender</th>
+        <Th>employeeShift</Th>
         <th>Action</th>
       </tr>
     </thead>
@@ -33,6 +35,7 @@
         <td  th:text="${emp.phone}"></td>
         <td th:text="${emp.Address}"></td>
         <td th:text="${emp.Gender}"></td>
+        <td th:text="${emp.employeeShift}"></td>
         <td>
             <a th:href="@{/nagaraj/edit/{id}(id=${emp.id})}" class="btn btn-primary">Edit</a>
             <a th:href="@{/nagaraj/delete/{id}(id=${emp.id})}" class="btn btn-danger">Delete</a>

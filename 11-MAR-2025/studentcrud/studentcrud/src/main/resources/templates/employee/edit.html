@@ -30,12 +30,21 @@
                 </div>
                 <div class="form-group">
                     <p>Gender:</p>
-                      <input type="radio" id="male" name="employeeGender" value="Male" th:field="*{Gender}">
-                      <label for="male">Male</label><br>
-                      <input type="radio" id="female" name="employeeGender" value="Female" th:field="*{Gender}">
-                      <label for="female">Female</label><br>
-                      <input type="radio" id="others" name="employeeGender" value="Others" th:field="*{Gender}">
-                      <label for="others">Others</label>
+                     <input type="radio" id="male" name="employeeGender" value="Male" th:field="*{Gender}">
+                     <label for="male">Male</label><br>
+                     <input type="radio" id="female" name="employeeGender" value="Female" th:field="*{Gender}">
+                     <label for="female">Female</label><br>
+                     <input type="radio" id="others" name="employeeGender" value="Others" th:field="*{Gender}">
+                     <label for="others">Others</label>
+                </div>
+                <div class="form-group">
+                    <p>EmployeeShift:</p>
+                    <input type="checkbox" id="Shift A"  value="Shift A" th:field="*{employeeShift}">
+                    <label for="employeeShift">Shift A</label><br>
+                    <input type="checkbox" id="Shift B"  value="Shift B" th:field="*{employeeShift}">
+                    <label for="employeeShift">Shift B</label><br>
+                    <input type="checkbox" id="Shift C"  value="Shift C" th:field="*{employeeShift}">
+                    <label for="employeeShift">Shift C</label><br>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </form>
