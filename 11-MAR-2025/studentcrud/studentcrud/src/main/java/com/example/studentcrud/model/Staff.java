@@ -1,10 +1,9 @@
 package com.example.studentcrud.model;
 import jakarta.persistence.*;
 
-
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "staff")
+public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,6 +11,7 @@ public class Student {
     private String name;
     private String email;
     private String phone;
+    private String profilepic;
 
     public Long getId() {
         return id;
@@ -42,5 +42,13 @@ public class Student {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getProfilepic() {
+        return profilepic;
+    }
+
+    public void setProfilepic(String profilepic) {
+        this.profilepic = profilepic;
     }
 }
